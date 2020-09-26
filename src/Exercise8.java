@@ -13,9 +13,13 @@ public class Exercise8 {
         System.out.print("Capacity : ");
         int capacity = keyboard.nextInt();
 
-        int busesRequired = (students + teachers) / capacity;
-        busesRequired++;
-        int overflow = (students + teachers) - ((busesRequired - 1) * capacity);
+        int totalPeople = students + teachers;
+        int busesRequired = totalPeople / capacity;
+        int overflow = totalPeople % capacity;
+
+        double modifiedOverflow = overflow - 0.0000001;
+
+        busesRequired += overflow/modifiedOverflow;
 
         System.out.println("");
         System.out.printf("Buses required      : %d\n", busesRequired);
